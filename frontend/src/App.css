@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;600&display=swap");
+
+.App {
+  min-height: 120vh;
+  display: flex;
+  background-image: url(./chat-bg-image.avif);
+  background-size: cover;
+  background-position: center;
+  color: "#4A5568";
+}
