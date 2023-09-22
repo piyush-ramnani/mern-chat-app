@@ -72,7 +72,7 @@ const authUser = expressAsyncHandler(async (req, res) => {
 
 module.exports = { registerUser, authUser };
 
-/* --UNDERSTANDING THE CODE--
+/* --UNDERSTANDING THE CODE---
 
     module.exports = {registerUser} -> curly braces is useful when you want to export multiple things (variables, functions, objects) from a module and you want to give each export a specific name.
 
