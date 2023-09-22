@@ -23,14 +23,13 @@ userModel.methods.matchPassword = async function (enteredPassword) {
 };
 
 //To encrypt the passwords before saving to the Database when registering the user.
-
 userModel.pre("save", async function (next) {
-  if (!this.isModified) {
-    next();
-  } else {
-    const salt = await bcrypt.genSalt(10);
-    this.password = bcrypt.hash(this.password, salt);
+  if (!this.isModified("password")) {
+    return next();
   }
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password || "", salt);
+  next();
 });
 
 const User = mongoose.model("User", userModel);

@@ -1,9 +1,8 @@
-import { Button, useToast } from "@chakra-ui/react";
-
 const { response } = require("express");
 const expressAsyncHandler = require("express-async-handler");
-const User = require("../Models/userModel"); //Database module being used by the controller
+const User = require("../Models/userModel"); //Database module
 const generateToken = require("../config/generateToken");
+const bcrypt = require("bcryptjs");
 
 const registerUser = expressAsyncHandler(async (req, res) => {
   const { name, email, password, pic } = req.body;
@@ -20,6 +19,12 @@ const registerUser = expressAsyncHandler(async (req, res) => {
     throw new Error("Oops, there's already someone here with that email!");
   } else {
     //data will be processed as per userModel Schema design (userModel.js)
+
+    /*
+    const salt = await bcrypt.genSalt(10);
+    const _password = await bcrypt.hash(password, salt);
+    */
+
     const user = await User.create({
       name,
       email,
