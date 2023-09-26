@@ -69,3 +69,9 @@ _middlewares [errorMiddleware.js]_
 _react [signUp.js] [login.js]_
 
 I know! I know! react is at the end, actually while building the app, you are overwhelmed with the functionalities and depth of any language. Without having a clear idea of where you are going and how deep you have to go to get this done, it is rather difficult to know the threshold. Which is why by not know ing and making the project along the course helped me visualize the blueprint of how things are stitched together in code.
+
+#Login Handler (login.js)
+< 39:00 : to handle guest user login
+    [https://www.youtube.com/watch?v=nvjYCK9oDRU&list=PLKhlp2qtUcSZsGkxAdgnPcHioRr-4guZf&index=9&ab_channel=RoadsideCoder]
+
+

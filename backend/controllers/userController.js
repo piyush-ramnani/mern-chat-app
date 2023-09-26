@@ -70,9 +70,24 @@ const authUser = expressAsyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { registerUser, authUser };
+//finding users in DB via queries from url/api (mongoose)
+const allUser = expressAsyncHandler(async (req, res) => {
+  const keyword = req.query.search
+    ? {
+        $or: [
+          { name: { $regex: req.query.search, $options: "i" } },
+          { email: { $regex: req.query.search, $options: "i" } },
+        ],
+      }
+    : {};
 
-/* --UNDERSTANDING THE CODE---
+  const users = await User.find(keyword).find({ _id: { $ne: req.user._id } });
+  res.send(users);
+});
+
+module.exports = { registerUser, authUser, allUser };
+
+/* ---UNDERSTANDING THE CODE---
 
     module.exports = {registerUser} -> curly braces is useful when you want to export multiple things (variables, functions, objects) from a module and you want to give each export a specific name.
 
@@ -82,4 +97,11 @@ module.exports = { registerUser, authUser };
 
     User is the wrapper from userModel.js file. It let's us send the data to db as per the schema design.
     Which is we can access create or findOne methods of Database
+
+    allUser:
+    //url/api/user?Search=[string] => the keyword value is now [string] which can be used to send to the backend.
+
+    .find({_id: {$ne: req.user._id}});
+    Finds the user and excludes it from the search list.
+    User searching for keyword will not get its own id as a result.
 */

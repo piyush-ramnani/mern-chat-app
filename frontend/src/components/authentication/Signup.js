@@ -33,7 +33,7 @@ const Signup = () => {
 
   const handleClick = () => setShow(!show);
 
-  //Uploading picture to the cloud for the app via cloudinary API (explanation at the end)
+  //Uploading picture to the cloud for the app via cloudinary API (explanation at the end) [NOTE: This is not yet uploaded to the DB]
   const postDetails = (pics) => {
     setLoading(true);
     if (pics === undefined) {
@@ -46,8 +46,10 @@ const Signup = () => {
       });
       return;
     }
-    if (pic === "image/jpeg" || "image/jpg") {
+    if (pics.type === "image/jpeg" || pics.type === "image/jpg") {
       //acceptable formats
+
+      //form type data created and appended to the FormData()
       const data = new FormData();
       data.append("file", pics);
       data.append("upload_preset", "ChatHub"); //preset created in cloudinary platform
@@ -101,6 +103,7 @@ const Signup = () => {
         isClosable: true,
         position: "bottom",
       });
+      return;
     }
 
     //Error handling when user is signing up.
@@ -108,7 +111,7 @@ const Signup = () => {
     try {
       const config = {
         headers: {
-          "content-type": "application/json",
+          "Content-type": "application/json",
         },
       };
 
@@ -117,7 +120,6 @@ const Signup = () => {
         { name, email, password, pic },
         config
       );
-
       toast({
         title: "Hooray! Registration successful.",
         status: "success",
@@ -125,7 +127,9 @@ const Signup = () => {
         isClosable: true,
         position: "bottom",
       });
-      //storing the information locally.
+
+      //storing the information locally on user machine for faster loading
+      // Also called session data.
       localStorage.setItem("userInfo", JSON.stringify(data));
       //redirecting user to chat page
       history.push("/chats");

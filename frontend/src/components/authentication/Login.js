@@ -41,7 +41,7 @@ const Login = () => {
     try {
       const config = {
         headers: {
-          "content-type": "application/json",
+          "Content-type": "application/json",
         },
       };
 
@@ -82,6 +82,7 @@ const Login = () => {
         <FormLabel>Email</FormLabel>
         <Input
           placeholder={"Enter your email"}
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
           borderWidth={"0.5px"}
           borderColor={"gray.400"}
@@ -93,6 +94,7 @@ const Login = () => {
           <Input
             type={show ? "text" : "password"}
             placeholder={"Create a password"}
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
             borderWidth={"0.5px"}
             borderColor={"gray.400"}

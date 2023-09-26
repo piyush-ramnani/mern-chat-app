@@ -34,6 +34,6 @@ userModel.pre("save", async function (next) {
 
 const User = mongoose.model("User", userModel);
 //Wrapping a database model into a string to export and use outside of this page/block.
-//Being used by userController.js in the folder 'controllers'.
+//Being used by userController.js in the folder 'controllers'..
 
 module.exports = User;
