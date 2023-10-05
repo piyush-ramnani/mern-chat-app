@@ -72,6 +72,27 @@ I know! I know! react is at the end, actually while building the app, you are ov
 
 #Login Handler (login.js)
 < 39:00 : to handle guest user login
-    [https://www.youtube.com/watch?v=nvjYCK9oDRU&list=PLKhlp2qtUcSZsGkxAdgnPcHioRr-4guZf&index=9&ab_channel=RoadsideCoder]
+[https://www.youtube.com/watch?v=nvjYCK9oDRU&list=PLKhlp2qtUcSZsGkxAdgnPcHioRr-4guZf&index=9&ab_channel=RoadsideCoder]
 
+#Protect [authMiddleware.js] 02/10/2023
+FEATURE:
 
+> This takes in a bearer token before proceeding to any function.
+> This acts as a security layer (middleware) when accessing chat or searching user information
+> The bearer token is set as Global variable in POSTMAN for the user {"email": "piyush.xavierite24@gmail.com", "password": "9826405534"}
+
+TEST:
+
+> Go to POSTMAN -> Search User -> `?name=protect` in the URL -> Authorization: select Bearer token.
+> without bearer token, it will result into an error
+
+#ChatAPI [chatControllers.js] 06/10/2023
+FEATURE:
+
+> Created 'create chat' feature by user ID parameter.
+> As soon as you search give a user ID, you will be able to access the chats of that particular user.
+
+TEST:
+
+> You can test this via POSTMAN by going to the create or access chat request under the Chat folder.
+> You will require a bearer token for the protect function that checks which user is logged in.
