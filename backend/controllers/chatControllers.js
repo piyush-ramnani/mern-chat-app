@@ -103,4 +103,26 @@ const createGroupChat = expressAsyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { accessChat, getChats, createGroupChat };
+const renameGroup = expressAsyncHandler(async (req, res) => {
+  const { chatId, chatName } = req.body;
+
+  //MongoDB function: findByIdAndUpdate that udpates the values provided
+  const updatedChat = await Chat.findByIdAndUpdate(
+    // new keyword will ensure to return new chat not the old one
+    chatId,
+    { chatName },
+    { new: true }
+  )
+    .populate("users", "-password")
+    .populate("groupAdmin", "-password");
+
+  //error handling
+  if (!updatedChat) {
+    res.status(404);
+    throw new Error("Chat not found");
+  } else {
+    res.json(updatedChat);
+  }
+});
+
+module.exports = { accessChat, getChats, createGroupChat, renameGroup };

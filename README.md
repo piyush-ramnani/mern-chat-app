@@ -96,3 +96,10 @@ TEST:
 
 > You can test this via POSTMAN by going to the create or access chat request under the Chat folder.
 > You will require a bearer token for the protect function that checks which user is logged in.
+
+#_createGroupChat [chatControllers.js]_
+
+> API: api/chat/group [chatRoutes.js]
+> Users can create group chat by adding users to the chat.
+> TEST:
+> Tested via postman: Takes in JSON to stringified user IDs
