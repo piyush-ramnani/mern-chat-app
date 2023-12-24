@@ -4,7 +4,7 @@ This README provides an overview of a MERN stack application that utilizes the E
 
 **PREREQUISITES**
 
-Every 'end' has a package.json file. Since Node is a huge framework, be it frontend or Backend, it is the configuration or set of packages that you would need in the application. I mean to create a house you just need to buy the raw materials that is required, not all of the worlds supply. Yes, Development is vast!
+every project has a package.json file. Since Node is a huge framework, be it frontend or Backend, it is the configuration or set of packages that you would need in the application. I mean to create a house you just need to buy the raw materials that is required, not all of the worlds supply. Yes, Development is vast!
 
 You can install npm in your system, copy-paste the package file in your system, navigate the terminal to that location and just hit 'npm install'. This will install all the necessary packages to that destinatoion. Yeah, I think it's magical too.
 
@@ -27,8 +27,7 @@ password: demopassword
 These technologies below are in the order by which they were gradually included (or I'd say rather learned) in the application as needed. It's a long list. So, crack up the fingers, get some black coffee and go through this slowly and steadily. Remember 'Rome was not conquered in a day!'
 
 _Server [server.js]_
-It's a little different when the project you are creating is a little backend oriented. Starting from the index.html is easier and works but average is just not good. So this all begins with creating a backend from ground up.
-EXPRESS.JS a Node.js library, is used to create server applications. See the file for the basic setup to get started.
+It's a little different when the project you are creating is a little backend oriented. Starting from the index.html is easier and works but average is just not good. So this all begins with creating a backend from ground up. EXPRESS.JS a Node.js library, is used to create server applications. See the file for the basic setup to get started.
 
 _Frontend Set-Up [create-react-app]_
 Installing react with the command 'create-react-app name' lays the groundwork for us to start directly implementing the code. All the folders under frontend are structured and downloaded.
