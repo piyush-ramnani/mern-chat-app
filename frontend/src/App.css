@@ -1,10 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap");
 
 .App {
+  font-family: Poppins;
   min-height: 120vh;
   display: flex;
   background-image: url(./chat-bg-image.avif);
   background-size: cover;
   background-position: center;
   color: "#4A5568";
+}
+
+/* Remove Scrollbar */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(136, 136, 136, 0.281);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

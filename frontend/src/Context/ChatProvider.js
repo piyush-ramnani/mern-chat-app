@@ -3,8 +3,13 @@ import { useHistory } from "react-router-dom";
 
 const ChatContext = createContext();
 
+//Will provide context of the logged in user in the whole app
+
 const ChatProvider = ({ children }) => {
   const [user, setUser] = useState();
+  const [selectedChat, setSelectedChat] = useState();
+  const [notification, setNotification] = useState([]);
+  const [chats, setChats] = useState([]);
 
   const history = useHistory();
 
@@ -18,7 +23,18 @@ const ChatProvider = ({ children }) => {
   }, [history]);
 
   return (
-    <ChatContext.Provider value={{ user, setUser }}>
+    <ChatContext.Provider
+      value={{
+        user,
+        setUser,
+        selectedChat,
+        setSelectedChat,
+        chats,
+        setChats,
+        notification,
+        setNotification,
+      }}
+    >
       {children}
     </ChatContext.Provider>
   );
